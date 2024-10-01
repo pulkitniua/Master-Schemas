@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "businessDetails": { "type": "string" },
+    "bankAccount": { "type": "string" },
+    "bank": { "type": "string" },
+    "bankBranch": { "type": "string" },
+    "tenantId": { "type": "string" }
+  },
+  "additionalProperties": false,
+  "required": [
+    "businessDetails",
+    "bankAccount",
+    "bank",
+    "bankBranch",
+    "tenantId"
+  ],
+  "x-unique": ["businessDetails", "bankAccount"]
+}

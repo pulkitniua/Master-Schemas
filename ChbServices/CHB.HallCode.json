@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "communityHallId": {
+      "type": "string"
+    },
+    "hallId": {
+      "type": "string"
+    },
+    "HallCode": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "string"
+    },
+    "timeSlots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "from", "duration"]
+      }
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "communityHallId",
+    "hallId",
+    "HallCode",
+    "capacity",
+    "timeSlots",
+    "active"
+  ],
+  "x-unique": ["communityHallId", "hallId", "HallCode"]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "active": { "type": "boolean" },
+    "connectionType": { "type": "string" },
+    "billingCycle": { "type": "string" },
+    "demandEndDateMillis": { "type": "integer" },
+    "demandExpiryDate": { "type": "integer" },
+    "taxPeriodFrom": { "type": ["integer", "null"] },
+    "taxPeriodTo": { "type": ["integer", "null"] },
+    "demandGenerationDateMillis": { "type": "integer" }
+  },
+  "additionalProperties": false,
+  "required": [
+    "active",
+    "connectionType",
+    "billingCycle",
+    "demandEndDateMillis",
+    "demandExpiryDate",
+
+    "demandGenerationDateMillis"
+  ],
+  "x-unique": [
+    "connectionType",
+    "billingCycle",
+    "demandEndDateMillis",
+    "demandGenerationDateMillis"
+  ]
+}

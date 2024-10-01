@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "applicationType": { "type": "string" },
+    "serviceType": { "type": "string" },
+    "riskType": { "type": "string" },
+    "feeType": { "type": "string" },
+    "amount": { "type": ["null", "integer"] },
+    "calsiLogic": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parameter": {
+            "type": "string"
+          },
+          "tolerancelimit": {
+            "type": "number"
+          },
+          "calculationType": {
+            "type": "string"
+          },
+          "deviation": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "number"
+                },
+                "to": {
+                  "type": "number"
+                },
+                "MF": {
+                  "type": "number"
+                },
+                "uom": {
+                  "type": "number"
+                }
+              },
+              "required": ["from", "to", "MF", "uom"]
+            }
+          },
+          "paramPath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "parameter",
+          "tolerancelimit",
+          "calculationType",
+          "deviation",
+          "paramPath"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "applicationType",
+    "serviceType",
+    "riskType",
+    "feeType",
+    "amount"
+  ],
+  "x-unique": ["applicationType", "serviceType", "riskType", "feeType"]
+}

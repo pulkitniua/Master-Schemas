@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "code": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": ["string"] },
+    "pincode": { "type": ["array", "null"], "items": { "type": "integer" } },
+    "logoId": { "type": "string" },
+    "imageId": { "type": "null" },
+    "domainUrl": { "type": "string" },
+    "type": { "type": "string" },
+    "twitterUrl": { "type": "null" },
+    "facebookUrl": { "type": "null" },
+    "emailId": { "type": "string" },
+    "OfficeTimings": {
+      "type": "object",
+      "properties": {
+        "Mon - Fri": { "type": "string" },
+        "Sat": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false,
+      "required": ["Mon - Fri"]
+    },
+    "city": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "localName": { "type": "string" },
+        "districtCode": { "type": "string" },
+        "districtName": { "type": "string" },
+        "districtTenantCode": { "type": "string" },
+        "regionName": { "type": "string" },
+        "ulbGrade": { "type": "string" },
+        "longitude": { "type": "number" },
+        "latitude": { "type": "number" },
+        "shapeFileLocation": { "type": "null" },
+        "captcha": { "type": "null" },
+        "code": { "type": "string" },
+        "ddrName": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "districtCode",
+        "districtTenantCode",
+        "ulbGrade",
+        "longitude",
+        "latitude",
+        "code",
+        "ddrName"
+      ]
+    },
+    "address": { "type": "string" },
+    "contactNumber": { "type": "string" },
+    "helpLineNumber": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false,
+  "required": [
+    "code",
+    "name",
+
+    "logoId",
+    "domainUrl",
+    "type",
+    "emailId",
+    "OfficeTimings",
+    "city",
+    "address",
+    "contactNumber"
+  ],
+  "x-unique": ["code"]
+}

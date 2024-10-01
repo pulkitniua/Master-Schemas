@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "code": { "type": "string" },
+    "active": { "type": "boolean" },
+    "roles": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string" }
+  },
+  "additionalProperties": false,
+  "required": ["code", "active", "roles", "status"],
+  "x-unique":[
+    "code",
+    "status"
+  ]
+}

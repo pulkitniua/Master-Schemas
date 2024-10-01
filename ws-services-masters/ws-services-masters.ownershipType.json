@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "code": { "type": "string" },
+    "active": { "type": "boolean" },
+    "ownerShipCategory": { "type": ["null","string"] },
+    "applicationDocument": { "type": "array", "items": { "type": "string" ,"required": [],"properties":{"documentList":{"type":"array","items":{"type":"string"}}}} },
+    "verificationDocument": { "type": ["array","null"] },
+    "type": { "type": "string" }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "code",
+    "active",
+   
+    "applicationDocument",
+    "verificationDocument",
+    "type"
+  ],
+  "x-unique":[
+    "code"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "businessService": { "type": "string" },
+    "code": { "type": "string" },
+    "collectionModesNotAllowed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "partPaymentAllowed": { "type": "boolean" },
+    "minAmountPayable": { "type": ["integer", "null"] },
+    "isAdvanceAllowed": { "type": "boolean" },
+    "demandUpdateTime": { "type": "integer" },
+    "isVoucherCreationEnabled": { "type": "boolean" },
+    "billGineiURL": { "type": ["string", "null"] },
+    "type": { "type": ["string", "null"] },
+    "isActive": { "type": ["boolean", "null"] },
+    "isBillAmendmentEnabled": { "type": ["boolean", "null"] },
+    "isCitizen": { "type": ["boolean", "null"] }
+  },
+  "additionalProperties": false,
+  "required": [
+    "businessService",
+    "code",
+    "collectionModesNotAllowed",
+    "partPaymentAllowed",
+    "isAdvanceAllowed",
+    "isVoucherCreationEnabled"
+  ],
+  "x-unique": ["code"]
+}

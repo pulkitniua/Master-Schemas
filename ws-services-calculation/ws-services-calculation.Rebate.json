@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "rate": { "type": "integer" },
+    "maxAmount": { "type": "null" },
+    "flatAmount": { "type": "null" },
+    "fromFY": { "type": "string" },
+    "endingDay": { "type": "integer" }
+  },
+  "additionalProperties": false,
+  "required": ["rate", "fromFY", "endingDay"],
+  "x-unique":[
+    "rate",
+    "endingDay",
+    "fromFY"
+  ]
+}

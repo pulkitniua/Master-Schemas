@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "colourCode": {
+      "type": "number"
+    },
+    "colourName": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": ["colourCode", "colourName", "active"],
+  "x-unique": ["colourCode", "colourName"]
+}

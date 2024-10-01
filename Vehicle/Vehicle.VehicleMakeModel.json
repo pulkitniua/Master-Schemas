@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "code": { "type": "string" },
+    "name": { "type": "string" },
+    "active": { "type": "boolean" },
+    "make": { "type": ["string", "null"] },
+    "capacity": { "type": ["string", "null"] },
+    "amount": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false,
+  "required": ["code", "name", "active"],
+  "x-unique": ["code"]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "userRole": { "type": "string" },
+    "statuses": { "type": "array", "items": { "type": "string" } },
+    "zeroCheck": { "type": ["boolean", "null"] },
+    "fixed": { "type": "boolean" }
+  },
+  "additionalProperties": false,
+  "required": ["userRole", "statuses", "fixed"],
+  "x-unique": ["userRole"]
+}

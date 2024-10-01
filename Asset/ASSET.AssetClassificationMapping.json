@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "code": { "type": "string" },
+    "active": { "type": "boolean" },
+    "assetCategory": {
+      "type": ["array", "null"],
+      "properties": {
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "active": { "type": "boolean" },
+        "assetSubCategory": {
+          "type": ["array", "null"],
+          "properties": {
+            "name": { "type": "string" },
+            "code": { "type": "string" },
+            "active": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "assetSubCategory": {
+      "type": ["array", "null"],
+      "properties": {
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "active": { "type": "boolean" }
+      }
+    },
+    "assetParentCategory": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "code": { "type": "string" },
+          "active": { "type": "boolean" },
+          "assetCategory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "code": { "type": "string" },
+                "active": { "type": "boolean" },
+                "assetSubCategory": { "type": ["array", "null"] }
+              },
+              "additionalProperties": false,
+              "required": ["name", "code", "active", "assetSubCategory"]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": ["name", "code", "active", "assetCategory"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": ["name", "code", "active", "assetParentCategory"],
+  "x-unique": ["name", "code"],
+  "x-ref-schema": [
+    {
+      "fieldPath": "assetParentCategory",
+      "schemCode": "ASSET.assetParentCategory"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "allOf": [
+    {
+      "if": {
+        "required": ["connectionType"],
+        "properties": {
+          "connectionType": {
+            "const": "Non Metered"
+          }
+        }
+      },
+      "then": {
+        "required": ["minimumCharge"],
+        "properties": {
+          "slabs": false,
+          "calculationAttribute": {
+            "enum": ["Flat", "No. of water closets", "No. of toilets"]
+          }
+        }
+      }
+    }
+  ],
+  "title": "Generated schema for Root",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "required": ["buildingType", "calculationAttribute", "connectionType"],
+  "x-unique": ["buildingType", "connectionType", "calculationAttribute"],
+  "properties": {
+    "slabs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "charge"],
+        "properties": {
+          "to": {
+            "type": "number",
+            "minimum": 0
+          },
+          "from": {
+            "type": "number",
+            "minimum": 0
+          },
+          "charge": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "x-ui-schema": {
+          "ui:order": ["from", "to", "charge"]
+        }
+      }
+    },
+    "buildingType": {
+      "enum": [
+        "RESIDENTIAL",
+        "NONRESIDENTIAL",
+        "Commercial",
+        "Government",
+        "Partly Commercial",
+        "MIXED"
+      ],
+      "type": "string"
+    },
+    "minimumCharge": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "connectionType": {
+      "enum": ["Non Metered"],
+      "type": "string"
+    },
+    "calculationAttribute": {
+      "enum": ["Flat", "No. of toilets", "No. of water closets"],
+      "type": "string"
+    }
+  },
+  "x-ui-schema": {
+    "ui:order": [
+      "buildingType",
+      "connectionType",
+      "calculationAttribute",
+      "minimumCharge",
+      "slabs"
+    ]
+  },
+  "x-ref-schema": [
+    {
+      "fieldPath": "calculationAttribute",
+      "schemaCode": "sw-services-calculation.CalculationAttribute"
+    }
+  ]
+}

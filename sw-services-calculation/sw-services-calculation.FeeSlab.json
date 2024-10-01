@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "formFee": { "type": "integer" },
+    "securityDeposit": { "type": ["integer", "null"] },
+    "connectionFee": { "type": ["integer", "null"] },
+    "other": { "type": "integer" },
+    "taxpercentage": { "type": "integer" },
+    "reconnectionfee": { "type": ["integer", "null"] },
+    "scrutinyFee": { "type": ["integer", "null"] },
+    "meterCost": { "type": ["integer", "null"] },
+    "isActive": { "type": "boolean" }
+  },
+  "additionalProperties": false,
+  "required": ["formFee", "other", "taxpercentage", "isActive"],
+  "x-unique": ["formFee"]
+}
